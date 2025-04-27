@@ -1,39 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Movie Site</title>
 </head>
+
 <body>
     <header>
-        <h1>Movie Site</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">TV Shows</a></li>
+                <li><a href="#">Movies</a></li>
+                <li><a href="#">My List</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Movies</a></li>
-            <li><a href="#">TV Shows</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-
     <main>
-        <section class="movie">
-            <h2>Movie Title</h2>
-            <p>Description of the movie.</p>
+        <section class="hero">
+            <h1>Welcome to Netflix</h1>
+            <p>Watch unlimited movies and TV shows anytime, anywhere.</p>
+            <button>Start your free trial</button>
         </section>
-        
-        <section class="movie">
-            <h2>Movie Title</h2>
-            <p>Description of the movie.</p>
+
+        <section class="movies">
+            <h2>Popular Movies</h2>
+            <div class="movie">
+                <img src="movie1.jpg" alt="Movie 1">
+                <h3>Movie Title</h3>
+            </div>
+            <div class="movie">
+                <img src="movie2.jpg" alt="Movie 2">
+                <h3>Movie Title</h3>
+            </div>
+            <div class="movie">
+                <img src="movie3.jpg" alt="Movie 3">
+                <h3>Movie Title</h3>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2022 Movie Site. All rights reserved.</p>
+        <p>&copy; 2022 Netflix</p>
     </footer>
 </body>
+
 </html>
