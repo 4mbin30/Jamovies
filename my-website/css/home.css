@@ -44,7 +44,9 @@ ul {
 }
 
 .logo img {
-  width: 140px;
+  width: 120px;
+  height: auto;
+  object-fit: contain;
 }
 
 .navigation .nav-links {
@@ -302,10 +304,5 @@ ul {
     flex-direction: column;
     align-items: center;
   }
-}
-.logo img {
-  width: 120px;
-  height: auto;
-  object-fit: contain;
 }
 
