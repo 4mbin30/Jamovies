@@ -7,30 +7,50 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="header">
-    <img src="assets/logo.png" alt="JaMovies Logo" class="logo" />
-    <h1 class="title">JaMovies</h1>
+  <!-- 🔥 Top Nav -->
+  <header class="netflix-header">
+    <img src="assets/logo.png" alt="JaMovies Logo" class="netflix-logo" />
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">TV Shows</a>
+      <a href="#">Movies</a>
+      <a href="#">My List</a>
+    </nav>
   </header>
 
-  <main class="movie-grid">
-    <!-- Repeat this block for each movie -->
-    <div class="movie-card">
-      <img src="assets/posters/movie1.jpg" alt="Movie Title" class="movie-poster" />
-      <h2 class="movie-title">The Great Escape</h2>
-      <p class="movie-genre">Action | Adventure</p>
+  <!-- 🔥 Hero Banner -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1>Featured: The Great Escape</h1>
+      <p>Experience the thrill of adventure and courage in this high-octane masterpiece.</p>
+      <button class="btn-play">▶ Play</button>
+      <button class="btn-info">ℹ More Info</button>
+    </div>
+  </section>
+
+  <!-- 🔥 Movie Carousels -->
+  <main class="section-container">
+    <h2 class="section-title">Trending Now</h2>
+    <div class="movie-row">
+      <div class="movie-thumb"><img src="assets/posters/movie1.jpg" alt="Movie 1" /></div>
+      <div class="movie-thumb"><img src="assets/posters/movie2.jpg" alt="Movie 2" /></div>
+      <div class="movie-thumb"><img src="assets/posters/movie3.jpg" alt="Movie 3" /></div>
+      <div class="movie-thumb"><img src="assets/posters/movie4.jpg" alt="Movie 4" /></div>
+      <!-- Add more as needed -->
     </div>
 
-    <div class="movie-card">
-      <img src="assets/posters/movie2.jpg" alt="Movie Title" class="movie-poster" />
-      <h2 class="movie-title">Silent Echoes</h2>
-      <p class="movie-genre">Thriller | Sci-Fi</p>
+    <h2 class="section-title">Sci-Fi Picks</h2>
+    <div class="movie-row">
+      <div class="movie-thumb"><img src="assets/posters/movie5.jpg" alt="Movie 5" /></div>
+      <div class="movie-thumb"><img src="assets/posters/movie6.jpg" alt="Movie 6" /></div>
+      <div class="movie-thumb"><img src="assets/posters/movie7.jpg" alt="Movie 7" /></div>
+      <div class="movie-thumb"><img src="assets/posters/movie8.jpg" alt="Movie 8" /></div>
     </div>
-
-    <!-- Add more movie-card blocks below -->
   </main>
 
-  <footer class="footer">
-    <p>© 2025 JaMovies. All rights reserved. Built by rebels for rebels.</p>
+  <!-- 🔥 Footer -->
+  <footer class="netflix-footer">
+    <p>© 2025 JaMovies. Chill with us.</p>
   </footer>
 </body>
 </html>
