@@ -1,120 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JaMovies</title>
-
-  <!-- Preloads -->
-  <link rel="preload" href="css/home.css" as="style" />
-  <link rel="preload" href="js/home.js" as="script" />
-
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/home.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
-  <!-- Manifest -->
-  <link rel="manifest" href="manifest.json" />
-
-  <!-- Scripts -->
-  <script defer src="js/home.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Movie Site</title>
 </head>
-
 <body>
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="container nav-container">
-     <a href="index.html" class="logo">
-  <img src="images/logo.png" alt="JaMovies Logo" />
-     </a>
-      <nav class="navigation">
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#movies">Movies</a></li>
-          <li><a href="#tvshows">TV Shows</a></li>
-          <li><a href="#anime">Anime</a></li>
+    <header>
+        <h1>Movie Site</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Movies</a></li>
+            <li><a href="#">TV Shows</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
-      </nav>
-      <div class="search">
-        <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
-      </div>
-    </div>
-  </header>
+    </nav>
 
-  <!-- Hero Section -->
-  <section class="banner" id="banner">
-    <div class="banner-overlay">
-      <div class="banner-content">
-        <h1 id="banner-title">Featured Title</h1>
-      </div>
-    </div>
-  </section>
+    <main>
+        <section class="movie">
+            <h2>Movie Title</h2>
+            <p>Description of the movie.</p>
+        </section>
+        
+        <section class="movie">
+            <h2>Movie Title</h2>
+            <p>Description of the movie.</p>
+        </section>
+    </main>
 
-  <!-- Main Content -->
-  <main class="content">
-    <section id="movies" class="row">
-      <h2>Trending Movies</h2>
-      <div class="list" id="movies-list"></div>
-    </section>
-
-    <section id="tvshows" class="row">
-      <h2>Trending TV Shows</h2>
-      <div class="list" id="tvshows-list"></div>
-    </section>
-
-    <section id="anime" class="row">
-      <h2>Trending Anime</h2>
-      <div class="list" id="anime-list"></div>
-    </section>
-  </main>
-
-  <!-- Modal Viewer -->
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal()">&times;</button>
-      <div class="modal-body">
-        <div class="modal-media">
-          <img id="modal-image" src="" alt="Poster" />
-        </div>
-        <div class="modal-details">
-          <h2 id="modal-title"></h2>
-          <div class="stars" id="modal-rating"></div>
-          <p id="modal-description"></p>
-          <div class="server-selector">
-            <label for="server">Select Server:</label>
-            <select id="server" onchange="changeServer()">
-              <option value="vidsrc.cc">Vidsrc.cc</option>
-              <option value="vidsrc.me">Vidsrc.me</option>
-              <option value="player.videasy.net">Videasy</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="modal-video">
-        <iframe id="modal-video" width="100%" height="360" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Search Modal -->
-  <div class="search-modal" id="search-modal">
-    <button class="search-close" onclick="closeSearchModal()">&times;</button>
-    <div class="search-wrapper">
-      <input type="text" id="search-input" placeholder="Search for movies or shows..." oninput="searchTMDB()" />
-      <div class="search-results" id="search-results"></div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-container">
-      <p>&copy; 2025 JaMovies. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#">Disclaimer</a>
-        <a href="#">About Us</a>
-        <a href="#">Contact</a>
-      </div>
-    </div>
-  </footer>
+    <footer>
+        <p>&copy; 2022 Movie Site. All rights reserved.</p>
+    </footer>
 </body>
 </html>
