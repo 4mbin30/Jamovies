@@ -2,99 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JaMovies</title>
-  <link rel="stylesheet" href="css/home.css">
-  <link rel="preload" href="css/home.css" as="style">
-  <link rel="preload" href="js/home.js" as="script">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Preloads -->
+  <link rel="preload" href="css/home.css" as="style" />
+  <link rel="preload" href="js/home.js" as="script" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Scripts -->
   <script defer src="js/home.js"></script>
 </head>
 
 <body>
   <!-- Navbar -->
   <header class="navbar">
-    <div class="container">
-      <img src="be55c38a-d741-4d01-bff1-1ea309c31839.png" alt="JaMovies Logo" class="logo">
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="#movies-list">Movies</a>
-        <a href="#tvshows-list">TV Shows</a>
-        <a href="#anime-list">Anime</a>
-        <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <img src="be55c38a-d741-4d01-bff1-1ea309c31839.png" alt="JaMovies Logo" />
+      </a>
+      <nav class="navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#movies">Movies</a></li>
+          <li><a href="#tvshows">TV Shows</a></li>
+          <li><a href="#anime">Anime</a></li>
+        </ul>
       </nav>
+      <div class="search">
+        <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
+      </div>
     </div>
   </header>
 
-  <!-- Banner -->
+  <!-- Hero Section -->
   <section class="banner" id="banner">
-    <div class="banner-content">
-      <h1 id="banner-title"></h1>
+    <div class="banner-overlay">
+      <div class="banner-content">
+        <h1 id="banner-title">Featured Title</h1>
+      </div>
     </div>
   </section>
 
-  <!-- Rows -->
-  <section class="content">
-    <div class="row">
+  <!-- Main Content -->
+  <main class="content">
+    <section id="movies" class="row">
       <h2>Trending Movies</h2>
       <div class="list" id="movies-list"></div>
-    </div>
+    </section>
 
-    <div class="row">
+    <section id="tvshows" class="row">
       <h2>Trending TV Shows</h2>
       <div class="list" id="tvshows-list"></div>
-    </div>
+    </section>
 
-    <div class="row">
+    <section id="anime" class="row">
       <h2>Trending Anime</h2>
       <div class="list" id="anime-list"></div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Modal -->
+  <!-- Modal Viewer -->
   <div class="modal" id="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
       <div class="modal-body">
-        <img id="modal-image" src="" alt="" />
-        <div class="modal-text">
+        <div class="modal-media">
+          <img id="modal-image" src="" alt="Poster" />
+        </div>
+        <div class="modal-details">
           <h2 id="modal-title"></h2>
           <div class="stars" id="modal-rating"></div>
           <p id="modal-description"></p>
+          <div class="server-selector">
+            <label for="server">Select Server:</label>
+            <select id="server" onchange="changeServer()">
+              <option value="vidsrc.cc">Vidsrc.cc</option>
+              <option value="vidsrc.me">Vidsrc.me</option>
+              <option value="player.videasy.net">Videasy</option>
+            </select>
+          </div>
         </div>
       </div>
-      
-      <div class="server-selector">
-        <label for="server">Change Server:</label>
-        <select id="server" onchange="changeServer()">
-          <option value="vidsrc.cc">Vidsrc.cc</option>
-          <option value="vidsrc.me">Vidsrc.me</option>
-          <option value="player.videasy.net">Player.Videasy.net</option>
-        </select>
+      <div class="modal-video">
+        <iframe id="modal-video" width="100%" height="360" frameborder="0" allowfullscreen></iframe>
       </div>
-      <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 
   <!-- Search Modal -->
   <div class="search-modal" id="search-modal">
-    <span class="close" onclick="closeSearchModal()">&times;</span>
-    <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
-    <div class="results" id="search-results"></div>
+    <button class="search-close" onclick="closeSearchModal()">&times;</button>
+    <div class="search-wrapper">
+      <input type="text" id="search-input" placeholder="Search for movies or shows..." oninput="searchTMDB()" />
+      <div class="search-results" id="search-results"></div>
+    </div>
   </div>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-content">
+    <div class="container footer-container">
       <p>&copy; 2025 JaMovies. All rights reserved.</p>
       <div class="footer-links">
         <a href="#">Disclaimer</a>
         <a href="#">About Us</a>
-        <a href="#">Contact Us</a>
+        <a href="#">Contact</a>
       </div>
     </div>
   </footer>
-  
 </body>
 </html>
