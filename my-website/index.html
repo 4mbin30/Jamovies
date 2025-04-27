@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Website</title>
+  <title>JaMovies</title>
   <link rel="stylesheet" href="css/home.css">
   <link rel="preload" href="css/home.css" as="style">
   <link rel="preload" href="js/home.js" as="script">
@@ -12,44 +13,57 @@
 </head>
 
 <body>
-  <div class="navbar">
-    <img src="be55c38a-d741-4d01-bff1-1ea309c31839.png" alt="JaMovies Logo" class="logo">
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <img src="be55c38a-d741-4d01-bff1-1ea309c31839.png" alt="JaMovies Logo" class="logo">
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#movies-list">Movies</a>
+        <a href="#tvshows-list">TV Shows</a>
+        <a href="#anime-list">Anime</a>
+        <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <div class="banner" id="banner">
-    <h1 id="banner-title"></h1>
-  </div>
+  <!-- Banner -->
+  <section class="banner" id="banner">
+    <div class="banner-content">
+      <h1 id="banner-title"></h1>
+    </div>
+  </section>
 
-  <div class="row">
-    <h2>Trending Movies</h2>
-    <div class="list" id="movies-list"></div>
-  </div>
+  <!-- Rows -->
+  <section class="content">
+    <div class="row">
+      <h2>Trending Movies</h2>
+      <div class="list" id="movies-list"></div>
+    </div>
 
-  <div class="row">
-    <h2>Trending TV Shows</h2>
-    <div class="list" id="tvshows-list"></div>
-  </div>
+    <div class="row">
+      <h2>Trending TV Shows</h2>
+      <div class="list" id="tvshows-list"></div>
+    </div>
 
-  <div class="row">
-    <h2>Trending Anime</h2>
-    <div class="list" id="anime-list"></div>
-  </div>
+    <div class="row">
+      <h2>Trending Anime</h2>
+      <div class="list" id="anime-list"></div>
+    </div>
+  </section>
 
+  <!-- Modal -->
   <div class="modal" id="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
+      <span class="close" onclick="closeModal()">&times;</span>
       <div class="modal-body">
-  <img id="modal-image" src="" alt="" />
-  <div class="modal-text">
-    <h2 id="modal-title"></h2>
-    <div class="stars" id="modal-rating"></div>
-    <p id="modal-description"></p>
-  </div>
-</div>
+        <img id="modal-image" src="" alt="" />
+        <div class="modal-text">
+          <h2 id="modal-title"></h2>
+          <div class="stars" id="modal-rating"></div>
+          <p id="modal-description"></p>
+        </div>
+      </div>
       
       <div class="server-selector">
         <label for="server">Change Server:</label>
@@ -63,22 +77,24 @@
     </div>
   </div>
 
+  <!-- Search Modal -->
   <div class="search-modal" id="search-modal">
-    <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
+    <span class="close" onclick="closeSearchModal()">&times;</span>
     <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
     <div class="results" id="search-results"></div>
   </div>
 
-<footer class="footer">
-  <div class="footer-content">
-    <p>&copy; 2025 Disclaimer DMCA. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#">Disclaimer</a>
-      <a href="#">About Us</a>
-      <a href="#">Contact Us</a>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 JaMovies. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Disclaimer</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+      </div>
     </div>
-  </div>
-</footer>
-
+  </footer>
   
 </body>
+</html>
