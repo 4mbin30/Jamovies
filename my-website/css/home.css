@@ -44,9 +44,15 @@ ul {
 }
 
 .logo img {
-  width: 120px;
+  width: 100px;
   height: auto;
   object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    width: 80px;
+  }
 }
 
 .navigation .nav-links {
