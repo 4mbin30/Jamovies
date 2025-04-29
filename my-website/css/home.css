@@ -10,8 +10,32 @@
     .nav-links { display: flex; align-items: center; gap: 10px; }
     .nav-links a { color: white; text-decoration: none; margin: 0 5px; }
 
-    .search-bar {
-      padding: 5px; border-radius: 5px; border: none;
+    /* Search Bar Styling */
+.search-bar {
+  width: 250px; /* Set a specific width */
+  padding: 10px 15px;
+  border-radius: 25px; /* Rounded corners for a clean look */
+  border: 2px solid #444; /* Light border color */
+  background-color: #222; /* Dark background to match the theme */
+  color: white; /* White text */
+  font-size: 1rem;
+  outline: none; /* Remove the default outline */
+  transition: all 0.3s ease; /* Smooth transition for focus effects */
+}
+
+/* Focus Effect */
+.search-bar:focus {
+  border-color: #ffcc00; /* Golden border when focused */
+  background-color: #333; /* Slightly lighter background on focus */
+  box-shadow: 0 0 8px rgba(255, 204, 0, 0.5); /* Glow effect when focused */
+}
+
+/* Placeholder Text Styling */
+.search-bar::placeholder {
+  color: #aaa; /* Lighter color for the placeholder text */
+  font-style: italic;
+}
+
     }
 
     . {
