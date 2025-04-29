@@ -14,7 +14,7 @@
       padding: 5px; border-radius: 5px; border: none;
     }
 
-    .banner {
+    . {
       height: 50vh;
       background-size: cover;
       display: flex;
@@ -219,25 +219,6 @@
   .banner h1 {
     font-size: 20px;
     padding: 5px;
-      /* Banner Subtitle Styling */
-.banner-subtitle {
-  font-size: 1.5rem;
-  font-family: 'Arial', sans-serif;
-  color: #fff;
-  position: absolute;
-  top: 20px; /* Distance from the top */
-  left: 20px; /* Distance from the left */
-  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-  padding: 10px 15px;
-  border-radius: 5px;
-  letter-spacing: 1px;
-  background: linear-gradient(90deg, yellow, green); /* Gradient from yellow to green */
-  -webkit-background-clip: text; /* Apply the gradient to the text */
-  color: transparent; /* Make the text color transparent to show the gradient */
-  }
-
-  .row h2 {
-    font-size: 18px;
   }
 
   .modal-content {
