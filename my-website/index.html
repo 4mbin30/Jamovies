@@ -1,103 +1,61 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JAMOVIES FOR ALL</title>
-  <link rel="stylesheet" href="css/home.css">
-  <link rel="preload" href="css/home.css" as="style">
-  <link rel="preload" href="js/home.js" as="script">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <script defer src="js/home.js"></script>
-
-  <script type="text/javascript" data-cfasync="false">
-/*<![CDATA[/* */
-(function(){var s=window,t="a9e34e1288334368db9930ef89ebb1ff",f=[["siteId",742+20*293+5189037],["minBid",5],["popundersPerIP","3:5,3:5"],["delayBetween",10],["default",false],["defaultPerDay",10],["topmostLayer","auto"]],k=["d3d3LmJsb2NrYWRzbm90LmNvbS90YW5ndWxhci1ncmlkc3Rlci5taW4uY3Nz","ZG5oZmk1bm4yZHQ2Ny5jbG91ZGZyb250Lm5ldC9TQk91Sy9pcXVvLm1pbi5qcw=="],d=-1,g,h,y=function(){clearTimeout(h);d++;if(k[d]&&!(1771861193000<(new Date).getTime()&&1<d)){g=s.document.createElement("script");g.type="text/javascript";g.async=!0;var r=s.document.getElementsByTagName("script")[0];g.src="https://"+atob(k[d]);g.crossOrigin="anonymous";g.onerror=y;g.onload=function(){clearTimeout(h);s[t.slice(0,16)+t.slice(0,16)]||y()};h=setTimeout(y,5E3);r.parentNode.insertBefore(g,r)}};if(!s[t]){try{Object.freeze(s[t]=f)}catch(e){}y()}})();
-/*]]>/* */
-</script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAMOVIES - Your Movie Stream</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
 </head>
-
 <body>
-  <!-- Navbar with Logo and Text -->
-  <header class="navbar">
-    
-    <div class="navbar-text">
-      <h1>JAMOVIES FREE FOR ALL</h1>
-       <p class="banner-subtitle">Your ultimate source for trending movies, TV shows, and anime!</p>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+           
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Movies</a></li>
+                <li><a href="#">TV Shows</a></li>
+                <li><a href="#">Anime</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+            <input type="text" class="search-bar" placeholder="Search for movies, shows...">
+        </nav>
+    </header>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="banner-content">
+            <h1>Welcome to JAMOVIES</h1>
+            <p>Your ultimate source for trending movies, TV shows, and anime!</p>
+        </div>
+    </section>
+
+    <!-- Trending Movies -->
+    <section class="trending">
+        <h2>Trending Movies</h2>
+        <div class="movie-list">
+            <!-- Movie items will go here -->
+        </div>
+    </section>
+
+    <!-- Modal for video playback -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <div class="modal-body">
+                <iframe id="moviePlayer" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
     </div>
-    <div class="nav-links">
-      
-  </header>
-  
-  <body>
-  <div class="navbar">
-    
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-     <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
-    </div>
-  </div>
 
-  <div class="banner" id="banner">
-    <h1 id="banner-title">Welcome to JaMovies</h1>
-</div>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 JAMOVIES. All rights reserved.</p>
+    </footer>
 
-  <div class="row">
-    <h2>Trending Movies</h2>
-    <div class="list" id="movies-list"></div>
-  </div>
-
-  <div class="row">
-    <h2>Trending TV Shows</h2>
-    <div class="list" id="tvshows-list"></div>
-  </div>
-
-  <div class="row">
-    <h2>Trending Anime</h2>
-    <div class="list" id="anime-list"></div>
-  </div>
-
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
-      <div class="modal-body">
-  <img id="modal-image" src="" alt="" />
-  <div class="modal-text">
-    <h2 id="modal-title"></h2>
-    <div class="stars" id="modal-rating"></div>
-    <p id="modal-description"></p>
-  </div>
-</div>
-      
-      <div class="server-selector">
-        <label for="server">Change Server:</label>
-        <select id="server" onchange="changeServer()">
-          <option value="vidsrc.cc">Vidsrc.cc</option>
-          <option value="vidsrc.me">Vidsrc.me</option>
-          <option value="player.videasy.net">Player.Videasy.net</option>
-        </select>
-      </div>
-      <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <div class="search-modal" id="search-modal">
-    <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
-    <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
-    <div class="results" id="search-results"></div>
-  </div>
-
-<footer class="footer">
-  <div class="footer-content">
-    <p>&copy; 2025 JAMOVIES. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#">Disclaimer DMCA</a>
-      <a href="#">About Us</a>
-      <a href="#">Contact Us</a>
-    </div>
-  </div>
-</footer>
-
-  
+    <script src="scripts.js"></script>
 </body>
+</html>
