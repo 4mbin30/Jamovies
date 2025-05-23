@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -9,49 +10,93 @@
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script defer src="js/home.js"></script>
-
-  <script type="text/javascript" data-cfasync="false">
-/*<![CDATA[/* */
-(function(){var s=window,t="a9e34e1288334368db9930ef89ebb1ff",f=[["siteId",742+20*293+5189037],["minBid",5],["popundersPerIP","3:5,3:5"],["delayBetween",10],["default",false],["defaultPerDay",10],["topmostLayer","auto"]],k=["d3d3LmJsb2NrYWRzbm90LmNvbS90YW5ndWxhci1ncmlkc3Rlci5taW4uY3Nz","ZG5oZmk1bm4yZHQ2Ny5jbG91ZGZyb250Lm5ldC9TQk91Sy9pcXVvLm1pbi5qcw=="],d=-1,g,h,y=function(){clearTimeout(h);d++;if(k[d]&&!(1771861193000<(new Date).getTime()&&1<d)){g=s.document.createElement("script");g.type="text/javascript";g.async=!0;var r=s.document.getElementsByTagName("script")[0];g.src="https://"+atob(k[d]);g.crossOrigin="anonymous";g.onerror=y;g.onload=function(){clearTimeout(h);s[t.slice(0,16)+t.slice(0,16)]||y()};h=setTimeout(y,5E3);r.parentNode.insertBefore(g,r)}};if(!s[t]){try{Object.freeze(s[t]=f)}catch(e){}y()}})();
-/*]]>/* */
-</script>
-
-  <script type="text/javascript" data-cfasync="false">
-/*<![CDATA[/* */
-(function(){var b=window,i="a9e34e1288334368db9930ef89ebb1ff",a=[["siteId",303+210*122+448+5169268],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],k=["d3d3LmJsb2NrYWRzbm90LmNvbS9Wb28vY2luc3RhZmV0Y2gubWluLmpz","ZG5oZmk1bm4yZHQ2Ny5jbG91ZGZyb250Lm5ldC93L0svZ2pzb25saW50Lm1pbi5jc3M="],p=-1,o,v,z=function(){clearTimeout(v);p++;if(k[p]&&!(1773319492000<(new Date).getTime()&&1<p)){o=b.document.createElement("script");o.type="text/javascript";o.async=!0;var s=b.document.getElementsByTagName("script")[0];o.src="https://"+atob(k[p]);o.crossOrigin="anonymous";o.onerror=z;o.onload=function(){clearTimeout(v);b[i.slice(0,16)+i.slice(0,16)]||z()};v=setTimeout(z,5E3);s.parentNode.insertBefore(o,s)}};if(!b[i]){try{Object.freeze(b[i]=a)}catch(e){}z()}})();
-/*]]>/* */
-</script>
   
+  <style>
+    /* Add styles for the movie slider */
+    .movie-slider {
+      display: flex;
+      overflow-x: auto;
+      padding: 20px;
+      gap: 20px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+    }
+
+    .movie-item {
+      min-width: 200px;
+      height: 300px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      scroll-snap-align: start;
+    }
+
+    .movie-item img {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .movie-item:hover {
+      transform: scale(1.05);
+    }
+
+    .movie-slider::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .movie-slider::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+    }
+
+    .movie-slider::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  </style>
 </head>
 
 <body>
   <!-- Navbar with Logo and Text -->
   <header class="navbar">
-    
     <div class="navbar-text">
       <h1>JAMOVIES FREE FOR ALL</h1>
-       <p class="banner-subtitle">Your ultimate source for trending movies, TV shows, and anime!</p>
+      <p class="banner-subtitle">Your ultimate source for trending movies, TV shows, and anime!</p>
     </div>
-    <div class="nav-links">
-      
-  </header>
-  
-  <body>
-  <div class="navbar">
-    
     <div class="nav-links">
       <a href="index.html">Home</a>
-     <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
+      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
     </div>
-  </div>
+  </header>
 
   <div class="banner" id="banner">
     <h1 id="banner-title">Welcome to JaMovies</h1>
-</div>
+  </div>
 
+  <!-- Trending Movies Slider -->
   <div class="row">
     <h2>Trending Movies</h2>
-    <div class="list" id="movies-list"></div>
+    <div class="movie-slider" id="movies-slider">
+      <!-- Movie items will go here -->
+      <div class="movie-item">
+        <img src="https://via.placeholder.com/200x300?text=Movie+1" alt="Movie 1">
+      </div>
+      <div class="movie-item">
+        <img src="https://via.placeholder.com/200x300?text=Movie+2" alt="Movie 2">
+      </div>
+      <div class="movie-item">
+        <img src="https://via.placeholder.com/200x300?text=Movie+3" alt="Movie 3">
+      </div>
+      <div class="movie-item">
+        <img src="https://via.placeholder.com/200x300?text=Movie+4" alt="Movie 4">
+      </div>
+      <div class="movie-item">
+        <img src="https://via.placeholder.com/200x300?text=Movie+5" alt="Movie 5">
+      </div>
+    </div>
   </div>
 
   <div class="row">
@@ -68,14 +113,14 @@
     <div class="modal-content">
       <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
       <div class="modal-body">
-  <img id="modal-image" src="" alt="" />
-  <div class="modal-text">
-    <h2 id="modal-title"></h2>
-    <div class="stars" id="modal-rating"></div>
-    <p id="modal-description"></p>
-  </div>
-</div>
-      
+        <img id="modal-image" src="" alt="" />
+        <div class="modal-text">
+          <h2 id="modal-title"></h2>
+          <div class="stars" id="modal-rating"></div>
+          <p id="modal-description"></p>
+        </div>
+      </div>
+
       <div class="server-selector">
         <label for="server">Change Server:</label>
         <select id="server" onchange="changeServer()">
@@ -94,16 +139,21 @@
     <div class="results" id="search-results"></div>
   </div>
 
-<footer class="footer">
-  <div class="footer-content">
-    <p>&copy; 2025 JAMOVIES. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#">Disclaimer DMCA</a>
-      <a href="#">About Us</a>
-      <a href="#">Contact Us</a>
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 JAMOVIES. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Disclaimer DMCA</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-  
+  <script>
+    // JavaScript for dynamically adding more movies to the slider can go here
+    // For example, you can fetch data from an API and add movie items to the movie-slider div
+  </script>
+
 </body>
+</html>
