@@ -327,7 +327,7 @@
   body, html {
     height: 100%;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; /* Default font for body */
   }
 
   .banner-container {
@@ -342,12 +342,17 @@
   }
 
   h1 {
-    font-size: 3rem;
+    font-family: 'Exo', sans-serif; /* Cool font for title */
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     margin: 0;
   }
 
   .banner-subtitle {
     font-size: 1.5rem;
     margin-top: 10px;
+    font-weight: 400;
   }
 </style>
