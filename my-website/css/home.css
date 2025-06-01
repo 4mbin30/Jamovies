@@ -322,3 +322,32 @@
     background-color: #45a049;
   }
 </style>
+
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .banner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    background-color: #222; /* Optional: background color for contrast */
+    color: #fff; /* Text color */
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  .banner-subtitle {
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+</style>
