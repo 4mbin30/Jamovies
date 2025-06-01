@@ -9,34 +9,6 @@
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script defer src="js/home.js"></script>
-
-  <script type="text/javascript">
-    function filterContentByGenre() {
-      const genre = document.getElementById("genre-select").value;
-      
-      // Hide all sections
-      document.getElementById("movies-list").style.display = "none";
-      document.getElementById("tvshows-list").style.display = "none";
-      document.getElementById("anime-list").style.display = "none";
-
-      // Show the section corresponding to the selected genre
-      if (genre === "action") {
-        document.getElementById("movies-list").style.display = "block";
-        document.getElementById("banner-title").textContent = "Action Movies";
-      } else if (genre === "comedy") {
-        document.getElementById("tvshows-list").style.display = "block";
-        document.getElementById("banner-title").textContent = "Comedy Shows";
-      } else if (genre === "drama") {
-        document.getElementById("anime-list").style.display = "block";
-        document.getElementById("banner-title").textContent = "Drama Anime";
-      } else {
-        document.getElementById("movies-list").style.display = "none";
-        document.getElementById("tvshows-list").style.display = "none";
-        document.getElementById("anime-list").style.display = "none";
-        document.getElementById("banner-title").textContent = "JAMOVIES FREE FOR ALL";
-      }
-    }
-  </script>
 </head>
 
 <body>
