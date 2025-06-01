@@ -1,8 +1,10 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>JAMOVIES FOR ALL</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <link rel="stylesheet" href="css/home.css">
   <link rel="preload" href="css/home.css" as="style">
   <link rel="preload" href="js/home.js" as="script">
@@ -11,50 +13,72 @@
   <script defer src="js/home.js"></script>
 </head>
 
-<body>
+<body class="bg-gray-100 font-sans">
+
   <!-- Navbar with Logo and Text -->
-  <header class="navbar">
-    <div class="banner-container">
-      <h1>JAMOVIES FREE FOR ALL</h1>
-      <p class="banner-subtitle">Your ultimate source for trending movies, TV shows, and anime!</p>
+  <header class="bg-blue-600 text-white py-6">
+    <div class="container mx-auto flex justify-between items-center">
+      <div>
+        <h1 class="text-4xl font-bold">JAMOVIES FREE FOR ALL</h1>
+        <p class="mt-2 text-lg">Your ultimate source for trending movies, TV shows, and anime!</p>
+      </div>
+      <div class="flex space-x-6">
+        <button class="text-lg hover:text-gray-200 transition" onclick="window.location.href='index.html'">Home</button>
+        <input type="text" class="px-4 py-2 rounded-full" placeholder="Search..." onfocus="openSearchModal()" />
+      </div>
     </div>
   </header>
 
-  <div class="navbar">
-    <div class="nav-links">
-      <button onclick="window.location.href='index.html'">Home</button>
-      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
+  <!-- Banner Section -->
+  <div class="bg-cover bg-center h-64 relative" style="background-image: url('your-banner-image.jpg');">
+    <div class="absolute inset-0 bg-black opacity-50 flex items-center justify-center">
+      <h1 class="text-4xl text-white font-bold">JAMOVIES FREE FOR ALL</h1>
     </div>
   </div>
 
-  <div class="banner" id="banner">
-    <h1 id="banner-title">JAMOVIES FREE FOR ALL</h1>
+  <!-- Trending Movies -->
+  <div class="container mx-auto py-12">
+    <h2 class="text-3xl font-semibold text-gray-800 mb-6">Trending Movies</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="movies-list">
+      <!-- Movie List Goes Here -->
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+        <img src="movie-image.jpg" alt="Movie Title" class="w-full h-40 object-cover" />
+        <div class="p-4">
+          <h3 class="font-semibold">Movie Title</h3>
+          <p class="text-gray-600">Short description of the movie.</p>
+        </div>
+      </div>
+      <!-- Repeat Movie Item Block as Needed -->
+    </div>
   </div>
 
-  <div class="row">
-    <h2>Trending Movies</h2>
-    <div class="list" id="movies-list" style="display: none;">Action Movies List Goes Here</div>
+  <!-- Trending TV Shows -->
+  <div class="container mx-auto py-12">
+    <h2 class="text-3xl font-semibold text-gray-800 mb-6">Trending TV Shows</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="tvshows-list">
+      <!-- TV Show List Goes Here -->
+    </div>
   </div>
 
-  <div class="row">
-    <h2>Trending TV Shows</h2>
-    <div class="list" id="tvshows-list" style="display: none;">Comedy TV Shows List Goes Here</div>
+  <!-- Trending Anime -->
+  <div class="container mx-auto py-12">
+    <h2 class="text-3xl font-semibold text-gray-800 mb-6">Trending Anime</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="anime-list">
+      <!-- Anime List Goes Here -->
+    </div>
   </div>
 
-  <div class="row">
-    <h2>Trending Anime</h2>
-    <div class="list" id="anime-list" style="display: none;">Drama Anime List Goes Here</div>
-  </div>
-
-  <footer class="footer">
-    <div class="footer-content">
+  <!-- Footer Section -->
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto flex justify-between items-center">
       <p>&copy; 2025 JAMOVIES. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#">Disclaimer DMCA</a>
-        <a href="#">About Us</a>
-        <a href="#">Contact Us</a>
+      <div class="space-x-4">
+        <a href="#" class="hover:underline">Disclaimer DMCA</a>
+        <a href="#" class="hover:underline">About Us</a>
+        <a href="#" class="hover:underline">Contact Us</a>
       </div>
     </div>
   </footer>
+
 </body>
 </html>
