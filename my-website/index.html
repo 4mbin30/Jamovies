@@ -1,126 +1,80 @@
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JAMOVIES FOR ALL</title>
+
+  <!-- External CSS -->
   <link rel="stylesheet" href="css/home.css">
   <link rel="preload" href="css/home.css" as="style">
-  <link rel="preload" href="js/home.js" as="script">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- External JS -->
   <script defer src="js/home.js"></script>
 
-  <script type="text/javascript" data-cfasync="false">
-/*<![CDATA[/* */
-(function(){var s=window,t="a9e34e1288334368db9930ef89ebb1ff",f=[["siteId",742+20*293+5189037],["minBid",5],["popundersPerIP","3:5,3:5"],["delayBetween",10],["default",false],["defaultPerDay",10],["topmostLayer","auto"]],k=["d3d3LmJsb2NrYWRzbm90LmNvbS90YW5ndWxhci1ncmlkc3Rlci5taW4uY3Nz","ZG5oZmk1bm4yZHQ2Ny5jbG91ZGZyb250Lm5ldC9TQk91Sy9pcXVvLm1pbi5qcw=="],d=-1,g,h,y=function(){clearTimeout(h);d++;if(k[d]&&!(1771861193000<(new Date).getTime()&&1<d)){g=s.document.createElement("script");g.type="text/javascript";g.async=!0;var r=s.document.getElementsByTagName("script")[0];g.src="https://"+atob(k[d]);g.crossOrigin="anonymous";g.onerror=y;g.onload=function(){clearTimeout(h);s[t.slice(0,16)+t.slice(0,16)]||y()};h=setTimeout(y,5E3);r.parentNode.insertBefore(g,r)}};if(!s[t]){try{Object.freeze(s[t]=f)}catch(e){}y()}})();
-/*]]>/* */
-</script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <script type="text/javascript" data-cfasync="false">
-/*<![CDATA[/* */
-(function(){var b=window,i="a9e34e1288334368db9930ef89ebb1ff",a=[["siteId",303+210*122+448+5169268],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],k=["d3d3LmJsb2NrYWRzbm90LmNvbS9Wb28vY2luc3RhZmV0Y2gubWluLmpz","ZG5oZmk1bm4yZHQ2Ny5jbG91ZGZyb250Lm5ldC93L0svZ2pzb25saW50Lm1pbi5jc3M="],p=-1,o,v,z=function(){clearTimeout(v);p++;if(k[p]&&!(1773319492000<(new Date).getTime()&&1<p)){o=b.document.createElement("script");o.type="text/javascript";o.async=!0;var s=b.document.getElementsByTagName("script")[0];o.src="https://"+atob(k[p]);o.crossOrigin="anonymous";o.onerror=z;o.onload=function(){clearTimeout(v);b[i.slice(0,16)+i.slice(0,16)]||z()};v=setTimeout(z,5E3);s.parentNode.insertBefore(o,s)}};if(!b[i]){try{Object.freeze(b[i]=a)}catch(e){}z()}})();
-/*]]>/* */
-</script>
+  <!-- Manifest for PWA -->
+  <link rel="manifest" href="manifest.json">
   
+  <!-- JS for analytics -->
+  <script type="text/javascript" data-cfasync="false">
+    // Your analytic or other script logic
+  </script>
+
 </head>
 
 <body>
   <!-- Navbar with Logo and Text -->
   <header class="navbar">
-    
-    <div class="banner-container">
-  <h1>JAMOVIES FREE FOR ALL</h1>
-  <p class="banner-subtitle">Your ultimate source for trending movies, TV shows, and anime!</p>
-</div>
-
-<style>
-  body, html {
-    height: 80%;
-    margin: 0;
-    font-family: Exo, Exo;
-  }
-
-  .banner-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    text-align: center;
-    background-color: #222; /* Optional: background color for contrast */
-    color: #fff; /* Text color */
-  }
-
-  h1 {
-    font-size: 2rem;
-    margin: 0;
-  }
-
-  .banner-subtitle {
-    font-size: 1.5rem;
-    margin-top: 10px;
-  }
-</style>
-      
-  </header>
-  
-  <body>
-  <div class="navbar">
-    
-    <div class="nav-links">
-     <button onclick="window.location.href='index.html'">Home</button>
-
-     <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
+    <div class="navbar-text">
+      <h1>JAMOVIES FREE FOR ALL</h1>
+      <p class="banner-subtitle">Your ultimate source for trending movies, TV shows, and anime!</p>
     </div>
+
+    <div class="nav-links">
+      <!-- Home Link and Search Bar -->
+      <a href="index.html" class="home-link">Home</a>
+      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
+    </div>
+  </header>
+
+  <!-- Banner Section -->
+  <div class="banner" id="banner">
+    <h1 id="banner-title">Welcome to JaMovies</h1>
   </div>
 
-    <div class="genre-container">
-  <label for="genre-select" class="genre-label">Choose a Genre:</label>
-  <select id="genre-select" class="genre-select">
-    <option value="">--Select Genre--</option>
-    <option value="action">Action</option>
-    <option value="comedy">Comedy</option>
-    <option value="drama">Drama</option>
-    <option value="horror">Horror</option>
-    <option value="romance">Romance</option>
-    <option value="sci-fi">Sci-Fi</option>
-    <option value="thriller">Thriller</option>
-    <option value="animation">Animation</option>
-    <option value="documentary">Documentary</option>
-  </select>
-</div>
-
-     <div class="banner" id="banner">
-    <h1 id="banner-title"></h1>
-</div>
-
+  <!-- Trending Movies Section -->
   <div class="row">
     <h2>Trending Movies</h2>
     <div class="list" id="movies-list"></div>
   </div>
 
+  <!-- Trending TV Shows Section -->
   <div class="row">
     <h2>Trending TV Shows</h2>
     <div class="list" id="tvshows-list"></div>
   </div>
 
+  <!-- Trending Anime Section -->
   <div class="row">
     <h2>Trending Anime</h2>
     <div class="list" id="anime-list"></div>
   </div>
 
+  <!-- Modal for Movie Details -->
   <div class="modal" id="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
       <div class="modal-body">
-  <img id="modal-image" src="" alt="" />
-  <div class="modal-text">
-    <h2 id="modal-title"></h2>
-    <div class="stars" id="modal-rating"></div>
-    <p id="modal-description"></p>
-  </div>
-</div>
-      
+        <img id="modal-image" src="" alt="Movie Poster" />
+        <div class="modal-text">
+          <h2 id="modal-title"></h2>
+          <div class="stars" id="modal-rating"></div>
+          <p id="modal-description"></p>
+        </div>
+      </div>
       <div class="server-selector">
         <label for="server">Change Server:</label>
         <select id="server" onchange="changeServer()">
@@ -133,22 +87,25 @@
     </div>
   </div>
 
+  <!-- Search Modal -->
   <div class="search-modal" id="search-modal">
     <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
     <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
     <div class="results" id="search-results"></div>
   </div>
 
-<footer class="footer">
-  <div class="footer-content">
-    <p>&copy; 2025 JAMOVIES. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#">Disclaimer DMCA</a>
-      <a href="#">About Us</a>
-      <a href="#">Contact Us</a>
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 JAMOVIES. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Disclaimer DMCA</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-  
 </body>
+
+</html>
