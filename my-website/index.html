@@ -1,48 +1,238 @@
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>JAMOVIES FOR ALL</title>
-
-  <!-- External CSS -->
   <link rel="stylesheet" href="css/home.css">
   <link rel="preload" href="css/home.css" as="style">
-  
-  <!-- External JS -->
+  <link rel="preload" href="js/home.js" as="script">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script defer src="js/home.js"></script>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body, html {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #141414;
+      color: #fff;
+      height: 100%;
+    }
 
-  <!-- Manifest for PWA -->
-  <link rel="manifest" href="manifest.json">
-  
-  <!-- JS for analytics -->
-  <script type="text/javascript" data-cfasync="false">
-    // Your analytic or other script logic
-  </script>
+    /* Navbar Styles */
+    .navbar {
+      background-color: #000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
+    .navbar button {
+      background-color: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .navbar button:hover {
+      background-color: #ff6347;
+    }
+
+    .search-bar {
+      padding: 0.5rem;
+      font-size: 1rem;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .search-bar:focus {
+      outline: none;
+      background-color: #444;
+    }
+
+    .banner-container {
+      text-align: center;
+      padding: 50px 20px;
+      background-image: url('https://via.placeholder.com/1920x1080/000000/ffffff?text=JAMOVIES');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+    }
+
+    .banner-container h1 {
+      font-size: 4rem;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .banner-subtitle {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      font-weight: 300;
+    }
+
+    /* Genre Selection */
+    .genre-container {
+      padding: 20px;
+      background-color: #222;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .genre-label {
+      font-size: 1rem;
+      margin-right: 10px;
+    }
+
+    .genre-select {
+      padding: 10px;
+      font-size: 1rem;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .row {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .row h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .list {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 20px;
+    }
+
+    .list div {
+      width: 200px;
+      background-color: #333;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .list div:hover {
+      transform: scale(1.05);
+    }
+
+    .list img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #222;
+      padding: 20px;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    .modal-body {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .modal-text {
+      color: #fff;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 2rem;
+      color: red;
+      cursor: pointer;
+    }
+
+    .footer {
+      background-color: #000;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .footer-content p {
+      color: #fff;
+      margin: 0;
+    }
+
+    .footer-links a {
+      color: #ff6347;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
 </head>
 
 <body>
   <!-- Navbar with Logo and Text -->
   <header class="navbar">
-    <div class="navbar-text">
+    <div class="banner-container">
       <h1>JAMOVIES FREE FOR ALL</h1>
       <p class="banner-subtitle">Your ultimate source for trending movies, TV shows, and anime!</p>
     </div>
-
-    <div class="nav-links">
-      <!-- Home Link and Search Bar -->
-      <a href="index.html" class="home-link">Home</a>
-      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
-    </div>
   </header>
 
-  <!-- Banner Section -->
-  <div class="banner" id="banner">
-    <h1 id="banner-title">Welcome to JaMovies</h1>
+  <div class="navbar">
+    <div class="nav-links">
+      <button onclick="window.location.href='index.html'">Home</button>
+      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
+    </div>
+  </div>
+
+  <!-- Genre Selection -->
+  <div class="genre-container">
+    <label for="genre-select" class="genre-label">Choose a Genre:</label>
+    <select id="genre-select" class="genre-select">
+      <option value="">--Select Genre--</option>
+      <option value="action">Action</option>
+      <option value="comedy">Comedy</option>
+      <option value="drama">Drama</option>
+      <option value="horror">Horror</option>
+      <option value="romance">Romance</option>
+      <option value="sci-fi">Sci-Fi</option>
+      <option value="thriller">Thriller</option>
+      <option value="animation">Animation</option>
+      <option value="documentary">Documentary</option>
+    </select>
   </div>
 
   <!-- Trending Movies Section -->
@@ -63,38 +253,7 @@
     <div class="list" id="anime-list"></div>
   </div>
 
-  <!-- Modal for Movie Details -->
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
-      <div class="modal-body">
-        <img id="modal-image" src="" alt="Movie Poster" />
-        <div class="modal-text">
-          <h2 id="modal-title"></h2>
-          <div class="stars" id="modal-rating"></div>
-          <p id="modal-description"></p>
-        </div>
-      </div>
-      <div class="server-selector">
-        <label for="server">Change Server:</label>
-        <select id="server" onchange="changeServer()">
-          <option value="vidsrc.cc">Vidsrc.cc</option>
-          <option value="vidsrc.me">Vidsrc.me</option>
-          <option value="player.videasy.net">Player.Videasy.net</option>
-        </select>
-      </div>
-      <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <!-- Search Modal -->
-  <div class="search-modal" id="search-modal">
-    <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
-    <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
-    <div class="results" id="search-results"></div>
-  </div>
-
-  <!-- Footer Section -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
       <p>&copy; 2025 JAMOVIES. All rights reserved.</p>
@@ -107,5 +266,4 @@
   </footer>
 
 </body>
-
 </html>
