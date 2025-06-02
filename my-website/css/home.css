@@ -1,381 +1,345 @@
- * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: #111; color: #fff; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
-      background: #222;
-    }
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: #111;
+  color: #fff;
+  line-height: 1.6;
+}
 
-    .navbar img { height: 40px; }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .nav-links a { 
-      color: white;
-      text-decoration: none;
-      margin: 0 5px;
-    }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #222;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
 
-    /* Search Bar Styling */
-    .search-bar {
-      width: 250px;
-      padding: 10px 15px;
-      border-radius: 25px;
-      border: 2px solid #444;
-      background-color: #222;
-      color: white;
-      font-size: 1rem;
-      outline: none;
-      transition: all 0.3s ease;
-    }
+.navbar img {
+  height: 50px;
+}
 
-    /* Focus Effect */
-    .search-bar:focus {
-      border-color: #ffcc00;
-      background-color: #333;
-      box-shadow: 0 0 8px rgba(255, 204, 0, 0.5);
-    }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
-    /* Placeholder Text Styling */
-    .search-bar::placeholder {
-      color: #aaa;
-      font-style: italic;
-    }
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
 
-    /* Banner */
-    .banner {
-      height: 50vh;
-      background-size: cover;
-      display: flex;
-      align-items: center;
-      padding: 20px;
-      background-color: #333; /* Optional */
-    }
+.nav-links a:hover {
+  color: #ffcc00;
+}
 
-    .banner h1 {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 10px;
-    }
+.search-bar {
+  width: 250px;
+  padding: 12px 18px;
+  border-radius: 30px;
+  border: 2px solid #444;
+  background-color: #333;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
 
-    /* Rows and List */
-    .row {
-      margin: 20px;
-    }
+.search-bar:focus {
+  border-color: #ffcc00;
+  background-color: #444;
+  box-shadow: 0 0 8px rgba(255, 204, 0, 0.5);
+}
 
-    .row h2 {
-      margin-bottom: 10px;
-    }
+.search-bar::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
 
-    .list {
-      display: flex;
-      overflow-x: auto;
-    }
+.banner {
+  height: 60vh;
+  background: url('your-banner-image.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
 
-    .list img {
-      width: 150px;
-      margin-right: 10px;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
+.banner h1 {
+  font-size: 4rem;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+}
 
-    .list img:hover {
-      transform: scale(1.05);
-      filter: brightness(1.2);
-      z-index: 2;
-    }
+.row {
+  margin: 30px 20px;
+}
 
-    /* Modal */
-    .modal {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-    }
+.row h2 {
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
 
-    .modal-content {
-      background: #222;
-      padding: 20px;
-      width: 100%;
-      max-width: 800px;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-      text-align: center;
-      border-radius: 10px;
-    }
+.list {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+}
 
-    .modal-body {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      margin-bottom: 20px;
-    }
+.list img {
+  width: 200px;
+  height: auto;
+  margin-right: 15px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
 
-    .modal-body img {
-      width: 30%;
-      border-radius: 5px;
-    }
+.list img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+  z-index: 2;
+}
 
-    .modal-text {
-      flex: 1;
-      text-align: left;
-    }
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
 
-    .modal img {
-      width: 25%;
-      border-radius: 5px;
-    }
+.modal-content {
+  background: #222;
+  padding: 30px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  text-align: center;
+  border-radius: 15px;
+}
 
-    .stars { color: gold; }
+.modal-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 20px;
+}
 
-    .close {
-      position: absolute;
-      top: 10px; right: 20px;
-      cursor: pointer;
-      font-size: 24px;
-    }
+.modal-body img {
+  width: 35%;
+  border-radius: 8px;
+}
 
-    .server-selector {
-      margin: 15px 0;
-      text-align: left;
-    }
+.modal-text {
+  flex: 1;
+  text-align: left;
+}
 
-    /* Search Modal */
-    .search-modal {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      z-index: 15;
-    }
+.stars {
+  color: gold;
+}
 
-    .search-modal input {
-      width: 300px;
-      padding: 10px;
-      border-radius: 5px;
-      border: none;
-      margin-bottom: 20px;
-    }
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 28px;
+  color: #fff;
+}
 
-    .search-modal .results {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
+.server-selector {
+  margin: 20px 0;
+  text-align: left;
+}
 
-    .search-modal img {
-      width: 120px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+.search-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 15;
+}
 
-    .search-modal .close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 30px;
-    }
+.search-modal input {
+  width: 350px;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  margin-bottom: 20px;
+}
 
-    /* Mobile Styles */
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+.search-modal .results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
 
-      .nav-links {
-        flex-direction: column;
-        width: 100%;
-        gap: 10px;
-        margin-top: 10px;
-      }
+.search-modal img {
+  width: 150px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
 
-      .nav-links a, .search-bar {
-        width: 100%;
-      }
+.search-modal img:hover {
+  transform: scale(1.1);
+}
 
-      .search-bar {
-        margin-top: 10px;
-      }
+.search-modal .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 32px;
+  color: #fff;
+}
 
-      .banner {
-        height: 30vh;
-      }
+.footer {
+  background: #222;
+  color: #ccc;
+  padding: 30px;
+  text-align: center;
+  margin-top: 50px;
+}
 
-      .modal-body {
-        align-items: center;
-      }
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-      .modal-body img {
-        width: 40%;
-      }
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
-      .modal-text {
-        text-align: center;
-      }
+.footer-links a {
+  color: #ffcc00;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
 
-      .list {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-      }
+.footer-links a:hover {
+  color: #fff;
+}
 
-      .list img {
-        width: 120px;
-      }
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-      .search-modal input {
-        margin-top: 50px;
-        width: 90%;
-      }
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+  }
 
-      .search-modal .results {
-        justify-content: center;
-        grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        padding: 10px 0;
-      }
-    }
+  .banner {
+    height: 40vh;
+  }
 
-    /* Footer */
-    .footer {
-      background: #222;
-      color: #ccc;
-      padding: 20px;
-      text-align: center;
-      margin-top: 40px;
-    }
+  .modal-body {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .footer-content {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+  .list {
+    flex-wrap: wrap;
+    gap: 15px;
+    overflow-x: auto;
+  }
 
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
+  .search-modal input {
+    width: 80%;
+  }
 
-    .footer-links a {
-      color: red;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
+  .footer-links {
+    flex-direction: row;
+    gap: 10px;
+  }
+}
 
-    .footer-links a:hover {
-      color: #fff;
-    }
+@media (max-width: 480px) {
+  .banner h1 {
+    font-size: 2rem;
+    padding: 10px;
+  }
 
-    /* Footer for smaller screens */
-    @media (max-width: 600px) {
-      .footer-content {
-        font-size: 14px;
-      }
+  .modal-content {
+    width: 90%;
+    padding: 20px;
+  }
 
-      .footer-links {
-        flex-direction: row;
-        gap: 8px;
-      }
-    }
+  .search-modal .close {
+    font-size: 28px;
+    top: 10px;
+    right: 20px;
+  }
+}
 
-    /* Button Styling */
-    .button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
+/* Button */
+.button {
+  background-color: #ffcc00;
+  color: white;
+  padding: 12px 25px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
 
-    .button:hover {
-      background-color: #45a049;
-    }
+.button:hover {
+  background-color: #ffbb00;
+}
 
-    /* Banner Container */
-    .banner-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      text-align: center;
-      background-color: #222;
-      color: #fff;
-    }
+/* Banner Container */
+.banner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  background-color: #222;
+  color: #fff;
+}
 
-    .banner h1 {
-      font-size: 3rem;
-      margin: 0;
-    }
+h1 {
+  font-size: 3.5rem;
+  margin: 0;
+}
 
-    .banner-subtitle {
-      font-size: 1.5rem;
-      margin-top: 10px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <header class="navbar">
-    <div class="navbar-text">
-      <h1>JAMOVIES FREE FOR ALL</h1>
-      <p class="banner-subtitle">Your ultimate source for trending movies, TV shows, and anime!</p>
-    </div>
-    <div class="nav-links">
-      <a href="index.html" class="button">Home</a>
-      <input type="text" class="search-bar" placeholder="Search for movies, shows...">
-    </div>
-  </header>
-
-  <main>
-    <section class="banner">
-      <h1>Trending Now</h1>
-    </section>
-
-    <div class="row">
-      <h2>Latest Movies</h2>
-      <div class="list">
-        <img src="path-to-image1.jpg" alt="movie">
-        <img src="path-to-image2.jpg" alt="movie">
-      </div>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-content">
-      <p>&copy; 2025 JAMOVIES. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-      </div>
-    </div>
-  </footer>
-
-</body>
-</html>
+.banner-subtitle {
+  font-size: 1.8rem;
+  margin-top: 15px;
+  font-style: italic;
+}
