@@ -329,3 +329,45 @@
 .color-changing-text {
     animation: colorChange 5s infinite; /* 5s cycle, infinite loop */
 }
+
+ <style>
+    /* Keyframe animation to change text color */
+    @keyframes colorChange {
+      0% {
+        color: #ff6347; /* Tomato */
+      }
+      25% {
+        color: #32cd32; /* LimeGreen */
+      }
+      50% {
+        color: #1e90ff; /* DodgerBlue */
+      }
+      75% {
+        color: #ff1493; /* DeepPink */
+      }
+      100% {
+        color: #ff6347; /* Tomato */
+      }
+    }
+
+    /* Apply the animation to the h2 element */
+    .animated-text {
+      animation: colorChange 4s infinite; /* 4 seconds duration, infinitely repeating */
+    }
+  </style>
+
+<style>
+  /* Keyframes for color change animation */
+  @keyframes colorChange {
+    0% { color: #FF5733; }    /* Initial color */
+    25% { color: #33FF57; }   /* Change to green */
+    50% { color: #3357FF; }   /* Change to blue */
+    75% { color: #FF33A1; }   /* Change to pink */
+    100% { color: #FF5733; }  /* Back to initial color */
+  }
+
+  /* Apply the animation to the title */
+  .color-change {
+    animation: colorChange 5s infinite;  /* 5s animation loop */
+  }
+</style>
