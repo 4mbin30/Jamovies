@@ -371,3 +371,59 @@
     animation: colorChange 5s infinite;  /* 5s animation loop */
   }
 </style>
+
+<style>
+  /* Highlight matched text in the search results */
+  .highlight {
+    background-color: yellow;
+  }
+
+  /* Style for search results */
+  .search-results {
+    background-color: #fff;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    display: none;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 10;
+  }
+
+  .result-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+  }
+
+  .result-item:hover {
+    background-color: #f5f5f5;
+  }
+
+  /* Search bar styles */
+  .search-bar {
+    width: 100%;
+    padding: 10px 40px 10px 20px;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  .search-bar:focus {
+    border-color: #4CAF50;
+    background-color: #e8f5e9; /* Light green background when active */
+  }
+
+  .search-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #ccc;
+    font-size: 18px;
+  }
+</style>
