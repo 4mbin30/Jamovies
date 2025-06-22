@@ -304,72 +304,50 @@
     gap: 8px;
   }
 }
-
-/* CSS for changing text color */
-.color-changing-text {
-    font-size: 24px;
-    transition: color 0.3s ease-in-out;
-}
-
-/* Hover effect for text color change */
-.color-changing-text:hover {
-    color: #FF6347; /* Example color on hover (Tomato Red) */
-}
-
-/* Keyframe animation for periodic color change */
-@keyframes colorChange {
-    0% { color: #FF6347; }   /* Tomato */
-    25% { color: #32CD32; }  /* Lime Green */
-    50% { color: #1E90FF; }  /* Dodger Blue */
-    75% { color: #FFD700; }  /* Gold */
-    100% { color: #FF6347; } /* Tomato */
-}
-
-/* Apply animation to the heading */
-.color-changing-text {
-    animation: colorChange 5s infinite; /* 5s cycle, infinite loop */
-}
-
- <style>
-    /* Keyframe animation to change text color */
-    @keyframes colorChange {
-      0% {
-        color: #ff6347; /* Tomato */
-      }
-      25% {
-        color: #32cd32; /* LimeGreen */
-      }
-      50% {
-        color: #1e90ff; /* DodgerBlue */
-      }
-      75% {
-        color: #ff1493; /* DeepPink */
-      }
-      100% {
-        color: #ff6347; /* Tomato */
-      }
-    }
-
-    /* Apply the animation to the h2 element */
-    .animated-text {
-      animation: colorChange 4s infinite; /* 4 seconds duration, infinitely repeating */
-    }
-  </style>
+<a href="index.html" class="button">Home</a>
 
 <style>
-  /* Keyframes for color change animation */
-  @keyframes colorChange {
-    0% { color: #FF5733; }    /* Initial color */
-    25% { color: #33FF57; }   /* Change to green */
-    50% { color: #3357FF; }   /* Change to blue */
-    75% { color: #FF33A1; }   /* Change to pink */
-    100% { color: #FF5733; }  /* Back to initial color */
+  .button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
   }
-
-  /* Apply the animation to the title */
-  .color-change {
-    animation: colorChange 5s infinite;  /* 5s animation loop */
+  .button:hover {
+    background-color: #45a049;
   }
 </style>
 
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
 
+  .banner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    background-color: #222; /* Optional: background color for contrast */
+    color: #fff; /* Text color */
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  .banner-subtitle {
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+</style>
