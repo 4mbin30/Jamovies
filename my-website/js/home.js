@@ -121,3 +121,65 @@ const API_KEY = 'a1e72fd93ed59f56e6332813b9f8dcae';
     }
 
     init();
+
+<script>
+  // Sample list of movies for suggestions
+  const movieList = [
+    "The Dark Knight",
+    "Inception",
+    "Interstellar",
+    "The Matrix",
+    "Avatar",
+    "Titanic",
+    "The Shawshank Redemption",
+    "The Godfather",
+    "Pulp Fiction",
+    "Forrest Gump",
+    "Fight Club",
+    "The Lord of the Rings",
+    "The Avengers",
+    "Iron Man",
+    "Spider-Man",
+    "The Lion King",
+    "Star Wars",
+    "Joker",
+    "Jurassic Park"
+  ];
+
+  // Function to simulate search and show movie suggestions
+  function searchMovies() {
+    const query = document.getElementById('search-bar').value.trim().toLowerCase();
+    const searchResults = document.getElementById('search-results');
+
+    // Clear previous results
+    searchResults.innerHTML = '';
+
+    if (query.length > 0) {
+      const filteredMovies = movieList.filter(movie => movie.toLowerCase().includes(query));
+      if (filteredMovies.length > 0) {
+        searchResults.style.display = 'block';
+        filteredMovies.forEach(movie => {
+          const resultItem = document.createElement('div');
+          resultItem.classList.add('result-item');
+          resultItem.innerHTML = highlightMatch(movie, query);
+          resultItem.onclick = function () {
+            document.getElementById('search-bar').value = movie;
+            searchResults.innerHTML = '';
+            searchResults.style.display = 'none';
+          };
+          searchResults.appendChild(resultItem);
+        });
+      } else {
+        searchResults.style.display = 'none';
+      }
+    } else {
+      searchResults.style.display = 'none';
+    }
+  }
+
+  // Function to highlight the matching query in the movie name
+  function highlightMatch(movie, query) {
+    const regex = new RegExp(query, 'gi');
+    return movie.replace(regex, match => `<span class="highlight">${match}</span>`);
+  }
+</script>
