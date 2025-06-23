@@ -1,176 +1,292 @@
-
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login - JAMOVIES FOR ALL</title>
-  <link rel="stylesheet" href="css/login.css">
-</head>
-<body>
-  <div class="login-container">
-    <h2>Login to Access JAMOVIES</h2>
-    <form id="login-form" action="home.html" method="POST" onsubmit="return validateForm()">
-      <div class="input-group">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-      </div>
-      <div class="input-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-      </div>
-      <button type="submit" class="btn">Login</button>
-      <p class="error-message" id="error-message"></p>
-    </form>
-  </div>
 
-  <script>
-    function validateForm() {
-      var username = document.getElementById("username").value;
-      var password = document.getElementById("password").value;
-
-      if (username === "" || password === "") {
-        document.getElementById("error-message").innerText = "Please fill in both fields.";
-        return false; // Prevent form submission
-      }
-
-      // Check credentials (You should use a backend API here instead of hardcoding)
-      if (username === "admin" && password === "password123") {
-        localStorage.setItem('isLoggedIn', 'true'); // Save login status in localStorage
-        return true; // Allow form submission
-      } else {
-        document.getElementById("error-message").innerText = "Invalid username or password.";
-        return false;
-      }
-    }
-  </script>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .login-container {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 300px;
-      text-align: center;
-    }
-
-    h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    .input-group {
-      margin-bottom: 15px;
-      text-align: left;
-    }
-
-    .input-group label {
-      font-size: 14px;
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .input-group input {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-
-    .error-message {
-      color: red;
-      font-size: 14px;
-      margin-top: 10px;
-      font-weight: bold;
-    }
-  </style>
-</body>
-</html>
-
-<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JAMOVIES FOR ALL</title>
-  <link rel="stylesheet" href="css/home.css">
 
-  <script>
-    // Check if the user is logged in
-    if (!localStorage.getItem('isLoggedIn')) {
-      window.location.href = 'login.html';  // Redirect to login if not logged in
-    }
+  <!-- External CSS -->
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="preload" href="css/home.css" as="style">
+
+  <!-- External JS -->
+  <script defer src="js/home.js"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Manifest for PWA -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- JS for analytics -->
+  <script type="text/javascript" data-cfasync="false">
+    // Your analytic or other script logic
   </script>
+
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      background-color: #333;
+      flex-wrap: wrap;
+    }
+
+    .navbar-text {
+      color: white;
+      text-align: center;
+    }
+
+    .navbar-text h1 {
+      margin: 0;
+    }
+
+    .navbar-text p {
+      margin: 5px 0 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    /* Home Button Styles */
+    .home-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .home-btn:hover {
+      background-color: #45a049;
+    }
+
+    /* Search Bar Styles */
+    .search-container {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .search-bar {
+      width: 100%;
+      padding: 10px 40px 10px 20px;
+      border: 2px solid #ccc;
+      border-radius: 30px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .search-bar:focus {
+      border-color: #4CAF50;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      color: #ccc;
+      font-size: 18px;
+    }
+
+    .search-results {
+      background-color: #fff;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      display: none;
+      max-height: 300px;
+      overflow-y: auto;
+      z-index: 10;
+    }
+
+    .result-item {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      cursor: pointer;
+    }
+
+    .result-item:hover {
+      background-color: #f5f5f5;
+    }
+
+    /* Responsive Design for Mobile */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar-text {
+        text-align: center;
+        margin-bottom: 15px;
+      }
+
+      .home-btn {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .search-container {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .search-bar {
+        font-size: 14px;
+        padding: 8px 35px 8px 15px;
+      }
+
+      .search-icon {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .home-btn {
+        width: 100%;
+        padding: 12px;
+      }
+
+      .search-container {
+        width: 90%;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <!-- Navbar with Logo and Text -->
   <header class="navbar">
     <div class="navbar-text">
       <h1>JAMOVIES FREE FOR ALL</h1>
-      <p>Your ultimate source for trending movies, TV shows, and anime!</p>
+      <p class="banner-subtitle">Your ultimate source for trending movies, TV shows, and anime!</p>
     </div>
+
     <div class="nav-links">
-      <button class="home-btn" onclick="window.location.href='home.html'">Home</button>
+      <!-- Home Button -->
+      <button class="home-btn" onclick="window.location.href='index.html'">Home</button>
+
+      <!-- Search Bar -->
       <div class="search-container">
-        <input type="text" class="search-bar" id="search-bar" placeholder="Search..." />
+        <input type="text" class="search-bar" id="search-bar" placeholder="Search..." onfocus="openSearchModal()" oninput="searchMovies()" />
+        <i class="fa fa-search search-icon"></i>
+        <div class="search-results" id="search-results"></div>
       </div>
     </div>
   </header>
 
+  <!-- Banner Section -->
   <div class="banner" id="banner">
-    <h1>Welcome to JaMovies</h1>
+    <h1 id="banner-title">Welcome to JaMovies</h1>
   </div>
 
-  <div class="row">
-    <h2>Trending Movies</h2>
+  <!-- Trending Movies Section -->
+ <div class="row">
+    <h2 class="color-changing-text">Trending Movies</h2>
     <div class="list" id="movies-list"></div>
+</div>
+
+  <!-- Trending TV Shows Section -->
+   <!-- Trending TV Shows Section with Animated Text Color -->
+  <div class="row">
+    <h2 class="animated-text">Trending TV Shows</h2>
+    <div class="list" id="tvshows-list"></div>
   </div>
 
+  <!-- Trending Anime Section -->
+  <div class="row">
+  <h2 class="color-change">Trending Anime</h2>
+  <div class="list" id="anime-list"></div>
+</div>
+
+  <!-- Modal for Movie Details -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
+      <div class="modal-body">
+        <img id="modal-image" src="" alt="Movie Poster" />
+        <div class="modal-text">
+          <h2 id="modal-title"></h2>
+          <div class="stars" id="modal-rating"></div>
+          <p id="modal-description"></p>
+        </div>
+      </div>
+      <div class="server-selector">
+        <label for="server">Change Server:</label>
+        <select id="server" onchange="changeServer()">
+          <option value="vidsrc.cc">Vidsrc.cc</option>
+          <option value="vidsrc.me">Vidsrc.me</option>
+          <option value="player.videasy.net">Player.Videasy.net</option>
+        </select>
+      </div>
+      <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
   <footer class="footer">
-    <p>&copy; 2025 JAMOVIES. All rights reserved.</p>
+    <div class="footer-content">
+      <p>&copy; 2025 JAMOVIES. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Disclaimer DMCA</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
   </footer>
 
   <script>
-    // This script runs once the user is logged in
-    if (localStorage.getItem('isLoggedIn')) {
-      console.log("User is logged in, you can show the page content");
+    // Function to simulate search
+    function searchMovies() {
+      const query = document.getElementById('search-bar').value.trim();
+      const searchResults = document.getElementById('search-results');
+      
+      if (query.length > 2) {
+        searchResults.style.display = 'block';
+        searchResults.innerHTML = `<div class="result-item">Search result for "${query}"</div>`;
+      } else {
+        searchResults.style.display = 'none';
+      }
+    }
+
+    // Function to handle search modal open
+    function openSearchModal() {
+      document.getElementById('search-results').style.display = 'block';
+    }
+
+    // Function to close search modal
+    function closeSearchModal() {
+      document.getElementById('search-results').style.display = 'none';
     }
   </script>
+
 </body>
+
 </html>
-
-<!-- Add this button somewhere on your home page -->
-<button onclick="logout()">Logout</button>
-
-<script>
-  function logout() {
-    // Clear login status
-    localStorage.removeItem('isLoggedIn');
-    window.location.href = 'login.html';  // Redirect to login page after logout
-  }
-</script>
