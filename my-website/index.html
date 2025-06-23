@@ -163,3 +163,14 @@
   </script>
 </body>
 </html>
+
+<!-- Add this button somewhere on your home page -->
+<button onclick="logout()">Logout</button>
+
+<script>
+  function logout() {
+    // Clear login status
+    localStorage.removeItem('isLoggedIn');
+    window.location.href = 'login.html';  // Redirect to login page after logout
+  }
+</script>
