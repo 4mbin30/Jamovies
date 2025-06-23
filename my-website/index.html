@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JAMOVIES FOR ALL</title>
+  <title>JAMOVIES FREE FOR ALL</title>
 
   <!-- External CSS -->
   <link rel="stylesheet" href="css/home.css">
   <link rel="preload" href="css/home.css" as="style">
+
+  <!-- Plyr Video.js CDN -->
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.4/plyr.css" />
   
   <!-- External JS -->
   <script defer src="js/home.js"></script>
@@ -17,7 +20,7 @@
 
   <!-- Manifest for PWA -->
   <link rel="manifest" href="manifest.json">
-  
+
   <!-- JS for analytics -->
   <script type="text/javascript" data-cfasync="false">
     // Your analytic or other script logic
@@ -29,7 +32,7 @@
   <!-- Navbar with Logo and Text -->
   <header class="navbar">
     <div class="navbar-text">
-      <h1>JAMOVIES FOR ALL</h1>
+      <h1>JAMOVIES FREE FOR ALL</h1>
       <p class="banner-subtitle">Your ultimate source for trending movies, TV shows, and anime!</p>
     </div>
 
@@ -49,18 +52,6 @@
   <div class="row">
     <h2>Trending Movies</h2>
     <div class="list" id="movies-list"></div>
-  </div>
-
-  <!-- Trending TV Shows Section -->
-  <div class="row">
-    <h2>Trending TV Shows</h2>
-    <div class="list" id="tvshows-list"></div>
-  </div>
-
-  <!-- Trending Anime Section -->
-  <div class="row">
-    <h2>Trending Anime</h2>
-    <div class="list" id="anime-list"></div>
   </div>
 
   <!-- Modal for Movie Details -->
@@ -83,15 +74,11 @@
           <option value="player.videasy.net">Player.Videasy.net</option>
         </select>
       </div>
-      <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+      <!-- Replace iframe with Plyr video player -->
+      <div class="plyr__video-embed" id="player-container">
+        <iframe id="modal-video" src="" allowfullscreen></iframe>
+      </div>
     </div>
-  </div>
-
-  <!-- Search Modal -->
-  <div class="search-modal" id="search-modal">
-    <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
-    <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
-    <div class="results" id="search-results"></div>
   </div>
 
   <!-- Footer Section -->
@@ -105,6 +92,27 @@
       </div>
     </div>
   </footer>
+
+  <!-- Include Plyr JS -->
+  <script src="https://cdn.plyr.io/3.7.4/plyr.min.js"></script>
+  <script>
+    // Initialize the Plyr player
+    const player = new Plyr('#modal-video');
+
+    function changeServer() {
+      const serverUrl = document.getElementById("server").value;
+      const videoUrl = `https://your-video-server.com/${serverUrl}`;  // Change the base URL accordingly
+      const iframe = document.getElementById("modal-video");
+      iframe.src = videoUrl;
+      player.source = {
+        type: 'video',
+        sources: [{
+          src: videoUrl,
+          provider: 'html5'
+        }]
+      };
+    }
+  </script>
 
 </body>
 
