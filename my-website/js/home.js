@@ -122,4 +122,27 @@ const API_KEY = 'a1e72fd93ed59f56e6332813b9f8dcae';
 
     init();
 
+// js/login.js
+
+document.getElementById('login-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // Get user inputs
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  // Check if the username and password are correct (you can change the validation)
+  if (username && password) {
+    // Store in localStorage
+    localStorage.setItem('username', username);
+    localStorage.setItem('password', password); // Note: You may want to hash the password for security.
+
+    // Redirect to the main page after successful login
+    window.location.href = 'index.html';  // or wherever your main page is
+  } else {
+    alert('Please enter both username and password!');
+  }
+});
+
+
   
