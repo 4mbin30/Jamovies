@@ -18,16 +18,23 @@
   <!-- Manifest for PWA -->
   <link rel="manifest" href="manifest.json">
   
+  <!-- JS for analytics -->
+  <script type="text/javascript" data-cfasync="false">
+    // Your analytic or other script logic
+  </script>
+
 </head>
 
 <body>
   <!-- Navbar with Logo and Text -->
   <header class="navbar">
-    <div class="navbar-logo">
-      <h1>JAMOVIES</h1>
+    <div class="navbar-text">
+      <h1>JAMOVIES FOR ALL</h1>
+      <p class="banner-subtitle">Your ultimate source for trending movies, TV shows, and anime!</p>
     </div>
 
     <div class="nav-links">
+      <!-- Home Link and Search Bar -->
       <a href="index.html" class="home-link">Home</a>
       <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
     </div>
@@ -36,7 +43,6 @@
   <!-- Banner Section -->
   <div class="banner" id="banner">
     <h1 id="banner-title">Welcome to JaMovies</h1>
-    <p class="banner-description">Your ultimate source for trending movies, TV shows, and anime!</p>
   </div>
 
   <!-- Trending Movies Section -->
@@ -60,7 +66,7 @@
   <!-- Modal for Movie Details -->
   <div class="modal" id="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
+      <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
       <div class="modal-body">
         <img id="modal-image" src="" alt="Movie Poster" />
         <div class="modal-text">
@@ -83,7 +89,7 @@
 
   <!-- Search Modal -->
   <div class="search-modal" id="search-modal">
-    <span class="close" onclick="closeSearchModal()">&times;</span>
+    <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
     <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
     <div class="results" id="search-results"></div>
   </div>
