@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter Username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+            <p>Don't have an account? <a href="javascript:void(0)" onclick="showRegister()">Register here</a></p>
+        </form>
+
+        <div id="registerForm" style="display:none;">
+            <h2>Register</h2>
+            <label for="newUsername">Username:</label>
+            <input type="text" id="newUsername" placeholder="Enter Username" required>
+            <label for="newPassword">Password:</label>
+            <input type="password" id="newPassword" placeholder="Enter Password" required>
+            <button type="button" onclick="registerUser()">Register</button>
+            <p>Already have an account? <a href="javascript:void(0)" onclick="showLogin()">Login here</a></p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
