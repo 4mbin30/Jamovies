@@ -1,0 +1,43 @@
+// Register function
+function registerUser() {
+    const username = document.getElementById("newUsername").value;
+    const password = document.getElementById("newPassword").value;
+
+    if (username && password) {
+        const user = { username, password };
+        localStorage.setItem(username, JSON.stringify(user));
+        alert("Registration successful!");
+        showLogin();
+    } else {
+        alert("Please fill in all fields.");
+    }
+}
+
+// Login function
+function loginUser(event) {
+    event.preventDefault();
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const storedUser = JSON.parse(localStorage.getItem(username));
+
+    if (storedUser && storedUser.password === password) {
+        alert("Login successful!");
+    } else {
+        alert("Invalid username or password.");
+    }
+}
+
+// Toggle between Login and Register forms
+function showRegister() {
+    document.getElementById("loginForm").style.display = "none";
+    document.getElementById("registerForm").style.display = "block";
+}
+
+function showLogin() {
+    document.getElementById("loginForm").style.display = "block";
+    document.getElementById("registerForm").style.display = "none";
+}
+
+// Add event listener to login form
+document.getElementById("loginForm").addEventListener("submit", loginUser);
