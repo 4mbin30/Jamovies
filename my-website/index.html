@@ -1,40 +1,196 @@
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JAMOVIES FOR ALL - Login</title>
+  <title>JAMOVIES FOR ALL</title>
 
   <!-- External CSS -->
-  <link rel="stylesheet" href="css/login.css">
-  <link rel="preload" href="css/login.css" as="style">
-  
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="preload" href="css/home.css" as="style">
+
+  <!-- External JS -->
+  <script defer src="js/home.js"></script>
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <!-- JS for login functionality -->
-  <script defer src="js/login.js"></script>
+
+  <!-- Manifest for PWA -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- JS for analytics -->
+  <script type="text/javascript" data-cfasync="false">
+    // Your analytic or other script logic
+  </script>
+
+  <script>
+    // Check if user is logged in
+    window.onload = function() {
+      const loggedIn = localStorage.getItem('isLoggedIn');
+      if (!loggedIn) {
+        document.getElementById('login-container').style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Disable scrolling until logged in
+      } else {
+        document.getElementById('login-container').style.display = 'none';
+        document.body.style.overflow = 'auto'; // Enable scrolling
+      }
+    };
+
+    // Handle login functionality
+    function login() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Check if credentials are correct (this is just a basic example)
+      if (username === 'user' && password === 'password') {
+        localStorage.setItem('isLoggedIn', 'true');
+        document.getElementById('login-container').style.display = 'none';
+        document.body.style.overflow = 'auto';
+      } else {
+        alert('Invalid credentials!');
+      }
+    }
+  </script>
 
 </head>
-
 <body>
-  <!-- Login Form -->
-  <div class="login-container">
-    <h1>Login to JAMOVIES</h1>
-    <form id="login-form">
-      <div class="input-group">
-        <label for="username">Username:</label>
-        <input type="text" id="username" placeholder="Enter username" required>
-      </div>
-      <div class="input-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" placeholder="Enter password" required>
-      </div>
-      <button type="submit">Login</button>
-    </form>
-    <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+  <!-- Login Container (Visible Only When Not Logged In) -->
+  <div id="login-container" class="login-container">
+    <div class="login-box">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+      <button onclick="login()">Login</button>
+    </div>
   </div>
 
-</body>
+  <!-- Navbar with Logo and Text -->
+  <header class="navbar">
+    <div class="navbar-text">
+      <h1>JAMOVIES FOR ALL</h1>
+      <p class="banner-subtitle">Your ultimate source for trending movies, TV shows, and anime!</p>
+    </div>
 
+    <div class="nav-links">
+      <a href="index.html" class="home-link">Home</a>
+      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
+    </div>
+  </header>
+
+  <!-- Banner Section -->
+  <div class="banner" id="banner">
+    <h1 id="banner-title">Welcome to JaMovies</h1>
+  </div>
+
+  <!-- Trending Movies Section -->
+  <div class="row">
+    <h2>Trending Movies</h2>
+    <div class="list" id="movies-list"></div>
+  </div>
+
+  <!-- Trending TV Shows Section -->
+  <div class="row">
+    <h2>Trending TV Shows</h2>
+    <div class="list" id="tvshows-list"></div>
+  </div>
+
+  <!-- Trending Anime Section -->
+  <div class="row">
+    <h2>Trending Anime</h2>
+    <div class="list" id="anime-list"></div>
+  </div>
+
+  <!-- Modal for Movie Details -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
+      <div class="modal-body">
+        <img id="modal-image" src="" alt="Movie Poster" />
+        <div class="modal-text">
+          <h2 id="modal-title"></h2>
+          <div class="stars" id="modal-rating"></div>
+          <p id="modal-description"></p>
+        </div>
+      </div>
+      <div class="server-selector">
+        <label for="server">Change Server:</label>
+        <select id="server" onchange="changeServer()">
+          <option value="vidsrc.cc">Vidsrc.cc</option>
+          <option value="vidsrc.me">Vidsrc.me</option>
+          <option value="player.videasy.net">Player.Videasy.net</option>
+        </select>
+      </div>
+      <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div class="search-modal" id="search-modal">
+    <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
+    <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
+    <div class="results" id="search-results"></div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 JAMOVIES. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Disclaimer DMCA</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Styles for Login -->
+  <style>
+    .login-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .login-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .login-box button:hover {
+      background-color: #218838;
+    }
+  </style>
+</body>
 </html>
