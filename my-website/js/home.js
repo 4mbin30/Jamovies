@@ -7,26 +7,60 @@ let currentItem;
 let currentIndex = 0;
 const slider = document.querySelector('#movies-list');
 
+// Focus management for keyboard/remote navigation
+let focusedIndex = 0;
+const posters = document.querySelectorAll('.movie-poster');
+
+window.addEventListener('load', () => {
+  if (posters.length > 0) {
+    posters[focusedIndex].focus(); // Focus on the first poster on page load
+  }
+});
+
+// Update the existing `slideTo` function to work with focus as well
 function slideTo(index) {
   const posters = document.querySelectorAll('.movie-poster');
   const totalPosts = posters.length;
 
-  // Wrap around if index goes out of bounds
+  if (totalPosts === 0) return;
+
   if (index < 0) {
-    currentIndex = totalPosts - 1;
+    focusedIndex = totalPosts - 1;
   } else if (index >= totalPosts) {
-    currentIndex = 0;
+    focusedIndex = 0;
   } else {
-    currentIndex = index;
+    focusedIndex = index;
   }
 
-  slider.style.transform = `translateX(-${currentIndex * (posters[0].clientWidth + 10)}px)`;
+  slider.style.transform = `translateX(-${focusedIndex * (posters[0].clientWidth + 10)}px)`;
+  posters[focusedIndex].focus(); // Set focus to the current movie poster
 }
 
 // Auto slide every 3 seconds
 setInterval(() => {
-  slideTo(currentIndex + 1);
+  slideTo(focusedIndex + 1);
 }, 3000);
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowRight') {
+    // Move right (next poster)
+    if (focusedIndex < posters.length - 1) {
+      focusedIndex++;
+      posters[focusedIndex].focus();
+    }
+  } else if (event.key === 'ArrowLeft') {
+    // Move left (previous poster)
+    if (focusedIndex > 0) {
+      focusedIndex--;
+      posters[focusedIndex].focus();
+    }
+  } else if (event.key === 'Enter') {
+    // On Enter key (or OK button on remote), open the movie details modal
+    const selectedPoster = posters[focusedIndex];
+    const selectedMovie = selectedPoster.querySelector('img');
+    showDetails({ title: selectedMovie.alt, poster_path: selectedMovie.src });
+  }
+});
 
 // Click event to slide to selected poster
 function displayList(items, containerId) {
@@ -35,6 +69,7 @@ function displayList(items, containerId) {
   items.forEach(item => {
     const movieDiv = document.createElement('div');
     movieDiv.classList.add('movie-poster');
+    movieDiv.tabIndex = 0; // Make movie posters focusable
 
     const img = document.createElement('img');
     img.src = `${IMG_URL}${item.poster_path}`;
