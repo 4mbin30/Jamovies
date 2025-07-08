@@ -72,69 +72,20 @@
         <div class="modal-text">
           <h2 id="modal-title"></h2>
           <div class="stars" id="modal-rating"></div>
-       <p id="modal-description"></p>
+          <p id="modal-description"></p>
         </div>
       </div>
-    <div class="server-selector">
-  <label for="server">Change Server:</label>
-  <select id="server" onchange="changeServer()">
-    <!-- Best servers -->
-    <option value="vidsrc.cc">Vidsrc.cc</option>
-    <option value="vidsrc.me">Vidsrc.me</option>
-    <option value="player.videasy.net">Player.Videasy.net</option>
-    <option value="streamsb.net">Streamsb</option>
-    <option value="streamtape.com">Streamtape</option>
-    <option value="dood.watch">DoodStream</option>
-    <option value="fembed.com">Fembed</option>
-  </select>
-</div>
-
-<iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
-
-<script>
-  function changeServer() {
-    var server = document.getElementById('server').value;
-    
-    // Example video ID (dynamically change this as per user selection)
-    var videoId = "12345";  // Replace this with actual video ID logic
-
-    var iframe = document.getElementById('modal-video');
-    var serverUrl = '';
-
-    // Determine the correct server URL pattern
-    switch (server) {
-      case 'vidsrc.cc':
-        serverUrl = `https://vidsrc.cc/embed/${videoId}`; 
-        break;
-      case 'vidsrc.me':
-        serverUrl = `https://vidsrc.me/embed/${videoId}`; 
-        break;
-      case 'player.videasy.net':
-        serverUrl = `https://player.videasy.net/${videoId}`; 
-        break;
-      case 'streamsb.net':
-        serverUrl = `https://streamsb.net/e/${videoId}`; 
-        break;
-      case 'streamtape.com':
-        serverUrl = `https://streamtape.com/e/${videoId}`; 
-        break;
-      case 'dood.watch':
-        serverUrl = `https://dood.watch/e/${videoId}`; 
-        break;
-      case 'fembed.com':
-        serverUrl = `https://fembed.com/v/${videoId}`; 
-        break;
-      default:
-        serverUrl = ''; 
-        break;
-    }
-
-    // Set iframe's source to the selected server's embed URL
-    iframe.src = serverUrl;
-  }
-</script>
-
-
+      <div class="server-selector">
+        <label for="server">Change Server:</label>
+        <select id="server" onchange="changeServer()">
+          <option value="vidsrc.cc">Vidsrc.cc</option>
+          <option value="vidsrc.me">Vidsrc.me</option>
+          <option value="player.videasy.net">Player.Videasy.net</option>
+        </select>
+      </div>
+      <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
 
   <!-- Search Modal -->
   <div class="search-modal" id="search-modal">
