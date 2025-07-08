@@ -78,17 +78,14 @@
     <div class="server-selector">
   <label for="server">Change Server:</label>
   <select id="server" onchange="changeServer()">
-    <!-- Existing servers -->
+    <!-- Best servers -->
     <option value="vidsrc.cc">Vidsrc.cc</option>
     <option value="vidsrc.me">Vidsrc.me</option>
     <option value="player.videasy.net">Player.Videasy.net</option>
-
-    <!-- New servers -->
-    <option value="openload.co">openload.co</option>
-    <option value="streamtape.com">streamtape.com</option>
-    <option value="bestflix.net">Bestflix.net</option>
-    <option value="flixxhub.org">FlixxHub.org</option>
-    <option value="streamsb.net">streamsb.net</option>
+    <option value="streamsb.net">Streamsb</option>
+    <option value="streamtape.com">Streamtape</option>
+    <option value="dood.watch">DoodStream</option>
+    <option value="fembed.com">Fembed</option>
   </select>
 </div>
 
@@ -98,37 +95,37 @@
   function changeServer() {
     var server = document.getElementById('server').value;
     
-    // Example of a video ID, this would normally be dynamic
-    var videoId = "12345";  // You can replace this with dynamic video ID based on user selection or page context
-    
+    // Example video ID (dynamically change this as per user selection)
+    var videoId = "12345";  // Replace this with actual video ID logic
+
     var iframe = document.getElementById('modal-video');
     var serverUrl = '';
 
-    // Set up video URL based on the selected server
+    // Determine the correct server URL pattern
     switch (server) {
       case 'vidsrc.cc':
-        serverUrl = `https://vidsrc.cc/embed/${videoId}`;  // Example URL for Vidsrc.cc
+        serverUrl = `https://vidsrc.cc/embed/${videoId}`; 
         break;
       case 'vidsrc.me':
-        serverUrl = `https://vidsrc.me/embed/${videoId}`;  // Example URL for Vidsrc.me
+        serverUrl = `https://vidsrc.me/embed/${videoId}`; 
         break;
       case 'player.videasy.net':
-        serverUrl = `https://player.videasy.net/${videoId}`;  // Example URL for Player.Videasy.net
+        serverUrl = `https://player.videasy.net/${videoId}`; 
         break;
-      case 'streaming.site1.com':
-        serverUrl = `https://streaming.site1.com/embed/${videoId}`;  // Example URL for Streaming.Site1.com
+      case 'streamsb.net':
+        serverUrl = `https://streamsb.net/e/${videoId}`; 
         break;
-      case 'movies.server2.net':
-        serverUrl = `https://movies.server2.net/embed/${videoId}`;  // Example URL for Movies.Server2.net
+      case 'streamtape.com':
+        serverUrl = `https://streamtape.com/e/${videoId}`; 
         break;
-      case 'bestflix.net':
-        serverUrl = `https://bestflix.net/embed/${videoId}`;  // Example URL for Bestflix.net
+      case 'dood.watch':
+        serverUrl = `https://dood.watch/e/${videoId}`; 
         break;
-      case 'flixxhub.org':
-        serverUrl = `https://flixxhub.org/embed/${videoId}`;  // Example URL for FlixxHub.org
+      case 'fembed.com':
+        serverUrl = `https://fembed.com/v/${videoId}`; 
         break;
       default:
-        serverUrl = ''; // Default empty URL for unknown server
+        serverUrl = ''; 
         break;
     }
 
