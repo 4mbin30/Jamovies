@@ -75,7 +75,7 @@
        <p id="modal-description"></p>
         </div>
       </div>
-     <div class="server-selector">
+    <div class="server-selector">
   <label for="server">Change Server:</label>
   <select id="server" onchange="changeServer()">
     <!-- Existing servers -->
@@ -97,14 +97,45 @@
   function changeServer() {
     var server = document.getElementById('server').value;
     
-    // Set the iframe's source to the selected server
-    // Modify this part based on how each server structures its URLs.
+    // Example of a video ID, this would normally be dynamic
+    var videoId = "12345";  // You can replace this with dynamic video ID based on user selection or page context
+    
     var iframe = document.getElementById('modal-video');
-    iframe.src = `https://${server}/embed`; // Example, change `/embed` to match your server's URL pattern.
+    var serverUrl = '';
 
-    // Additional handling can be added here if you have specific server configurations.
+    // Set up video URL based on the selected server
+    switch (server) {
+      case 'vidsrc.cc':
+        serverUrl = `https://vidsrc.cc/embed/${videoId}`;  // Example URL for Vidsrc.cc
+        break;
+      case 'vidsrc.me':
+        serverUrl = `https://vidsrc.me/embed/${videoId}`;  // Example URL for Vidsrc.me
+        break;
+      case 'player.videasy.net':
+        serverUrl = `https://player.videasy.net/${videoId}`;  // Example URL for Player.Videasy.net
+        break;
+      case 'streaming.site1.com':
+        serverUrl = `https://streaming.site1.com/embed/${videoId}`;  // Example URL for Streaming.Site1.com
+        break;
+      case 'movies.server2.net':
+        serverUrl = `https://movies.server2.net/embed/${videoId}`;  // Example URL for Movies.Server2.net
+        break;
+      case 'bestflix.net':
+        serverUrl = `https://bestflix.net/embed/${videoId}`;  // Example URL for Bestflix.net
+        break;
+      case 'flixxhub.org':
+        serverUrl = `https://flixxhub.org/embed/${videoId}`;  // Example URL for FlixxHub.org
+        break;
+      default:
+        serverUrl = ''; // Default empty URL for unknown server
+        break;
+    }
+
+    // Set iframe's source to the selected server's embed URL
+    iframe.src = serverUrl;
   }
 </script>
+
 
 
   <!-- Search Modal -->
