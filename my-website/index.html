@@ -72,20 +72,40 @@
         <div class="modal-text">
           <h2 id="modal-title"></h2>
           <div class="stars" id="modal-rating"></div>
-          <p id="modal-description"></p>
+       <p id="modal-description"></p>
         </div>
       </div>
-      <div class="server-selector">
-        <label for="server">Change Server:</label>
-        <select id="server" onchange="changeServer()">
-          <option value="vidsrc.cc">Vidsrc.cc</option>
-          <option value="vidsrc.me">Vidsrc.me</option>
-          <option value="player.videasy.net">Player.Videasy.net</option>
-        </select>
-      </div>
-      <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
+     <div class="server-selector">
+  <label for="server">Change Server:</label>
+  <select id="server" onchange="changeServer()">
+    <!-- Existing servers -->
+    <option value="vidsrc.cc">Vidsrc.cc</option>
+    <option value="vidsrc.me">Vidsrc.me</option>
+    <option value="player.videasy.net">Player.Videasy.net</option>
+
+    <!-- New servers -->
+    <option value="streaming.site1.com">Streaming.Site1.com</option>
+    <option value="movies.server2.net">Movies.Server2.net</option>
+    <option value="bestflix.net">Bestflix.net</option>
+    <option value="flixxhub.org">FlixxHub.org</option>
+  </select>
+</div>
+
+<iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+
+<script>
+  function changeServer() {
+    var server = document.getElementById('server').value;
+    
+    // Set the iframe's source to the selected server
+    // Modify this part based on how each server structures its URLs.
+    var iframe = document.getElementById('modal-video');
+    iframe.src = `https://${server}/embed`; // Example, change `/embed` to match your server's URL pattern.
+
+    // Additional handling can be added here if you have specific server configurations.
+  }
+</script>
+
 
   <!-- Search Modal -->
   <div class="search-modal" id="search-modal">
