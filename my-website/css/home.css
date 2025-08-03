@@ -1,36 +1,3 @@
-/* General style for the header text */
-h1, .banner-subtitle {
-  transition: color 0.5s ease; /* Smooth transition for color change */
-}
-
-/* Hover effect for the main title */
-h1:hover {
-  color: #e50914; /* Red color for the title */
-}
-
-/* Hover effect for the subtitle */
-.banner-subtitle:hover {
-  color: #f0a500; /* Gold color for the subtitle */
-}
-
-/* Example for adding text color animation */
-h1, .banner-subtitle {
-  animation: colorChange 3s infinite alternate;
-}
-
-@keyframes colorChange {
-  0% {
-    color: #ffffff; /* White at the start */
-  }
-  50% {
-    color: #e50914; /* Red in the middle */
-  }
-  100% {
-    color: #f0a500; /* Gold at the end */
-  }
-}
-
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; background: #111; color: #fff; }
 
@@ -43,35 +10,11 @@ h1, .banner-subtitle {
     .nav-links { display: flex; align-items: center; gap: 10px; }
     .nav-links a { color: white; text-decoration: none; margin: 0 5px; }
 
-    /* Search Bar Styling */
-.search-bar {
-  width: 250px; /* Set a specific width */
-  padding: 10px 15px;
-  border-radius: 25px; /* Rounded corners for a clean look */
-  border: 2px solid #444; /* Light border color */
-  background-color: #222; /* Dark background to match the theme */
-  color: white; /* White text */
-  font-size: 1rem;
-  outline: none; /* Remove the default outline */
-  transition: all 0.3s ease; /* Smooth transition for focus effects */
-}
-
-/* Focus Effect */
-.search-bar:focus {
-  border-color: #ffcc00; /* Golden border when focused */
-  background-color: #333; /* Slightly lighter background on focus */
-  box-shadow: 0 0 8px rgba(255, 204, 0, 0.5); /* Glow effect when focused */
-}
-
-/* Placeholder Text Styling */
-.search-bar::placeholder {
-  color: #aaa; /* Lighter color for the placeholder text */
-  font-style: italic;
-}
-
+    .search-bar {
+      padding: 5px; border-radius: 5px; border: none;
     }
 
-    . {
+    .banner {
       height: 50vh;
       background-size: cover;
       display: flex;
@@ -278,6 +221,10 @@ h1, .banner-subtitle {
     padding: 5px;
   }
 
+  .row h2 {
+    font-size: 18px;
+  }
+
   .modal-content {
     width: 95%;
     padding: 15px;
@@ -337,50 +284,3 @@ h1, .banner-subtitle {
     gap: 8px;
   }
 }
-<a href="index.html" class="button">Home</a>
-
-<style>
-  .button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .button:hover {
-    background-color: #45a049;
-  }
-</style>
-
-<style>
-  body, html {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-
-  .banner-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    text-align: center;
-    background-color: #222; /* Optional: background color for contrast */
-    color: #fff; /* Text color */
-  }
-
-  h1 {
-    font-size: 3rem;
-    margin: 0;
-  }
-
-  .banner-subtitle {
-    font-size: 1.5rem;
-    margin-top: 10px;
-  }
-</style>
