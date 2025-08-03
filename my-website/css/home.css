@@ -1,36 +1,3 @@
-/* General style for the header text */
-h1, .banner-subtitle {
-  transition: color 0.5s ease; /* Smooth transition for color change */
-}
-
-/* Hover effect for the main title */
-h1:hover {
-  color: #e50914; /* Red color for the title */
-}
-
-/* Hover effect for the subtitle */
-.banner-subtitle:hover {
-  color: #f0a500; /* Gold color for the subtitle */
-}
-
-/* Example for adding text color animation */
-h1, .banner-subtitle {
-  animation: colorChange 3s infinite alternate;
-}
-
-@keyframes colorChange {
-  0% {
-    color: #ffffff; /* White at the start */
-  }
-  50% {
-    color: #e50914; /* Red in the middle */
-  }
-  100% {
-    color: #f0a500; /* Gold at the end */
-  }
-}
-
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; background: #111; color: #fff; }
 
