@@ -1,3 +1,33 @@
+/* Define the color change animation */
+@keyframes colorChange {
+  0% {
+    color: #FF6347; /* Tomato */
+  }
+  25% {
+    color: #FFD700; /* Gold */
+  }
+  50% {
+    color: #32CD32; /* Lime Green */
+  }
+  75% {
+    color: #00BFFF; /* Deep Sky Blue */
+  }
+  100% {
+    color: #FF6347; /* Tomato (back to start) */
+  }
+}
+
+/* Apply the color changing animation to the heading */
+.navbar-text h1 {
+  animation: colorChange 5s ease-in-out infinite; /* Color change every 5 seconds */
+}
+
+/* Apply the same color changing animation to the subtitle */
+.navbar-text p {
+  animation: colorChange 7s ease-in-out infinite; /* Color change every 7 seconds */
+}
+
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; background: #111; color: #fff; }
 
@@ -304,3 +334,50 @@
     gap: 8px;
   }
 }
+<a href="index.html" class="button">Home</a>
+
+<style>
+  .button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .button:hover {
+    background-color: #45a049;
+  }
+</style>
+
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .banner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    background-color: #222; /* Optional: background color for contrast */
+    color: #fff; /* Text color */
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  .banner-subtitle {
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+</style>
